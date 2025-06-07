@@ -95,7 +95,7 @@ export default function Page() {
     try {
       const chatHistory = [{ role: "user", parts: [{ text: `Explain concisely why '${correctAnswerText}' is the correct answer to the question '${questionText}'.` }] }];
       const payload = { contents: chatHistory };
-      const apiKey = ""; // Canvas will automatically provide the API key
+      const apiKey = process.env.NEXT_PUBLIC_API_KEY; // Canvas will automatically provide the API key
       const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
 
       const response = await fetch(apiUrl, {
